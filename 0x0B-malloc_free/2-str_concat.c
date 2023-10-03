@@ -1,84 +1,46 @@
 #include "main.h"
-		
 #include <stdlib.h>
-		
 /**
-		
- * str_concat - get ends of input and add together for size
-		
- * @s1: input one to concat
-		
- * @s2: input two to concat
-		
- * Return: concat of s1 and s2
-		
+ *str_concat - concantenates two strings
+ *@s1: input string 1
+ *@s2: input string 2
+ *Return: concantenated string.
  */
-		
 char *str_concat(char *s1, char *s2)
-		
 {
-		
-	char *conct;
-		
-	int i, ci;
-		
+	int i, j, total, z, y;
+	char *c;
 
-		
-	if (s1 == NULL)
-		
+	if ( s1 == NULL)
+	{
 		s1 = "";
-		
+	}
 	if (s2 == NULL)
-		
+	{
 		s2 = "";
-		
-
-		
-		i = ci = 0;
-		
+	}
+	i = 0;
 	while (s1[i] != '\0')
-		
+	{
 		i++;
-		
-	while (s2[ci] != '\0')
-		
-		ci++;
-	total = 
-		
-	conct = malloc(sizeof(char) * (i + ci + 1));
-		
-
-		
-	if (conct == NULL)
-		
+	}
+	j = 0;
+	while (s2[j] != '\0')
+	{
+		j++;
+	}
+	total = i + j;
+	c = (char *)malloc(sizeof(char) * (total + 1));
+	if (c == NULL)
 		return (NULL);
-		
-	i = ci = 0;
-		
-	while (s1[i] != '\0')
-		
+	for (z = 0; z < i; z++)
 	{
-		
-		conct[i] = s1[i];
-		
-		i++;
-		
+		c[z] = s1[z];
 	}
-		
-
-		
-	while (s2[ci] != '\0')
-		
+	for (y = 0; y < j; y++)
 	{
-		
-		conct[i] = s2[ci];
-		
-		i++, ci++;
-		
+		c[z + y] = s2[y];
 	}
-		
-	conct[i] = '\0';
-		
-	return (conct);
-		
+	c[total] = '\0';
+	return (c);
 }
